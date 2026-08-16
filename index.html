@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        
+        <meta charset="UTF-8" />
+        <meta name="viewport"  content="width=device-width,
+        initial-scale=1.0"> 
+             <title>Calcolatrice</title>
+ 
+           <link rel="stylesheet" href="style.calcoli.css"> <!-- Il file CSS --> 
+            <script  src="dataora.js"></script>
+    
+     </head>
+        
+       <body>
+                      
+        <div class="container">
+         <div  id="datetime"> </div>
+        <h2>Calcolatrice</h2>      
+        
+      <div id="calcolatrice"></div>
+  <input type="text" id="display" readonly>
+  <div id="tastiera">
+    <button onclick="aggiungi('1')">1</button>
+    <button onclick="aggiungi('2')">2</button>
+    <button onclick="aggiungi('3')">3</button>
+    <button onclick="aggiungi('+')">+</button>
+    <button onclick="aggiungi('4')">4</button>
+    <button onclick="aggiungi('5')">5</button>
+    <button onclick="aggiungi('6')">6</button>
+    <button onclick="aggiungi('-')">-</button>
+    <button onclick="aggiungi('7')">7</button>
+    <button onclick="aggiungi('8')">8</button>
+    <button onclick="aggiungi('9')">9</button>
+    <button onclick="aggiungi('*')">*</button>
+    <button onclick="aggiungi('0')">0</button>
+    <button onclick="pulisci()">C</button>
+    <button onclick="calcola()">=</button>
+    <button onclick="aggiungi(':')">:</button>
+    <button onclick="calcolaRadice()">√</button>
+  </div>
+                 
+                  
+       <script>
+       
+        let risultato;
+        let conta;
+        let radice;
+        let primo;
+        let secondo;
+
+           caricodata();
+
+           const  display = document.getElementById('display'); 
+
+           aggiungi(valore);
+            
+          function calcola(){
+
+         const testo = display.value; 
+         
+       
+          const [campo1, oper, campo2] =testo.match(/(\d+)|([a-zA-Z]+)|([\+\-\:\*/])/g);
+        
+           primo = +campo1;
+           secondo = +campo2;       
+              
+           if(oper  === "+" ){
+           risultato = primo + secondo;
+            document.getElementById('display').value = (risultato);
+            return 
+           } 
+           if (oper === "-" ){
+            risultato = primo-secondo;
+           document.getElementById('display').value = (risultato);
+            return 
+           }  
+           if (oper === ":" ){
+            risultato = primo/ secondo;
+            document.getElementById('display').value = (risultato);
+            return 
+           }
+           if (oper === "*" ){
+            risultato = primo*secondo;
+            document.getElementById('display').value = (risultato);
+            return 
+           }
+           
+          }  
+              
+            
+          
+           function aggiungi(valore) {
+           display.value += valore;
+         }
+
+         function pulisci() {
+          display.value = '';
+        }
+          
+           function calcolaRadice(){ 
+
+         const testo = display.value;  
+         if (testo === "") return
+       
+          const [campo1, oper, campo2] =testo.match(/(\d+)|([a-zA-Z]+)|([\+\-\:\*/])/g);
+       
+        primo = +campo1;
+                                   
+                 radice =0;
+                	conta=0;          
+	       do{	
+             conta=conta+1;
+              radice =conta*conta; 
+              
+	          }while( radice < primo);  
+               if (radice  === primo) {
+           document.getElementById('display').value = (conta); 
+           return         
+              }                 
+                 conta=conta-1;
+          do{	 
+                
+              	conta = conta+0.00000001;
+              	radice =conta*conta;    	
+            	}while ( radice<primo);
+
+              document.getElementById('display').value = (conta); 
+              return                               
+               
+           }
+                              
+        
+ </script>  
+  
+ </body>      
+         
