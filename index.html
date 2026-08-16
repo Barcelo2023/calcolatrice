@@ -34,10 +34,11 @@
     <button onclick="aggiungi('9')">9</button>
     <button onclick="aggiungi('*')">*</button>
     <button onclick="aggiungi('0')">0</button>
-    <button onclick="pulisci()">C</button>
+    <button onclick="aggiungi('.')">.</button>
     <button onclick="calcola()">=</button>
     <button onclick="aggiungi(':')">:</button>
     <button onclick="calcolaRadice()">√</button>
+    <button onclick="pulisci('C')">C</button>
   </div>
                  
                   
@@ -60,11 +61,13 @@
          const testo = display.value; 
          
        
-          const [campo1, oper, campo2] =testo.match(/(\d+)|([a-zA-Z]+)|([\+\-\:\*/])/g);
+    //      const [campo1, oper, campo2] =testo.match(/([\d.]+)([\+\-\:\*/])([\d.]+)/);
+          const [campo1, oper, campo2] = testo.match(/([0-9.]+)\s*([+\-\:\*/])\s*([0-9.]+)/).slice(1);
         
-           primo = +campo1;
-           secondo = +campo2;       
-              
+           primo = parseFloat(campo1);
+           secondo = parseFloat(campo2); 
+           
+ 
            if(oper  === "+" ){
            risultato = primo + secondo;
             document.getElementById('display').value = (risultato);
