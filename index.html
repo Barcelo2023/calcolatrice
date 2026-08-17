@@ -39,6 +39,7 @@
     <button onclick="aggiungi(':')">:</button>
     <button onclick="calcolaRadice()">√</button>
     <button onclick="pulisci('C')">C</button>
+    <button onclick="cancellaUltimo()">&#8592</button>
   </div>
                  
                   
@@ -100,7 +101,11 @@
          function pulisci() {
           display.value = '';
         }
-          
+
+          function cancellaUltimo() {
+          display.value = display.value.slice(0, -1);
+
+          }
            function calcolaRadice(){ 
 
          const testo = display.value;  
