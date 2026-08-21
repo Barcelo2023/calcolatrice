@@ -50,6 +50,7 @@
         let radice;
         let primo;
         let secondo;
+        let veroNumero;
 
            caricodata();
 
@@ -67,26 +68,30 @@
         
            primo = parseFloat(campo1);
            secondo = parseFloat(campo2); 
-           
- 
+       
+
            if(oper  === "+" ){
            risultato = primo + secondo;
-            document.getElementById('display').value = (risultato);
+           veroNumero = Number(risultato.toFixed(2)); 
+            document.getElementById('display').value = (veroNumero);
             return 
            } 
            if (oper === "-" ){
             risultato = primo-secondo;
-           document.getElementById('display').value = (risultato);
+           veroNumero = Number(risultato.toFixed(2)); 
+           document.getElementById('display').value = (veroNumero);
             return 
            }  
            if (oper === ":" ){
             risultato = primo/ secondo;
-            document.getElementById('display').value = (risultato);
+             veroNumero = Number(risultato.toFixed(2)); 
+            document.getElementById('display').value = (veroNumero);
             return 
            }
            if (oper === "*" ){
             risultato = primo*secondo;
-            document.getElementById('display').value = (risultato);
+            veroNumero = Number(risultato.toFixed(2)); 
+            document.getElementById('display').value = (veroNumero);
             return 
            }
            
