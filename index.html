@@ -62,9 +62,7 @@
 
          const testo = display.value; 
          
-       
-    //      const [campo1, oper, campo2] =testo.match(/([\d.]+)([\+\-\:\*/])([\d.]+)/);
-          const [campo1, oper, campo2] = testo.match(/([0-9.]+)\s*([+\-\:\*/])\s*([0-9.]+)/).slice(1);
+          const [campo1, oper, campo2] = testo.match(/(-?[0-9.]+)\s*([+\-\:\*/])\s*(-?[0-9.]+)/).slice(1);
         
            primo = parseFloat(campo1);
            secondo = parseFloat(campo2); 
