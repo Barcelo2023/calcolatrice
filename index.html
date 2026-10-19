@@ -32,7 +32,7 @@
     <button onclick="aggiungi('7')">7</button>
     <button onclick="aggiungi('8')">8</button>
     <button onclick="aggiungi('9')">9</button>
-    <button onclick="aggiungi('*')">*</button>
+    <button onclick="aggiungi('x')">x</button>
     <button onclick="aggiungi('0')">0</button>
     <button onclick="aggiungi('.')">.</button>
     <button onclick="calcola()">=</button>
@@ -61,40 +61,16 @@
           function calcola(){
 
          const testo = display.value; 
-         
-          const [campo1, oper, campo2] = testo.match(/(-?[0-9.]+)\s*([+\-\:\*/])\s*(-?[0-9.]+)/).slice(1);
-        
-           primo = parseFloat(campo1);
-           secondo = parseFloat(campo2); 
-       
+                 
 
-           if(oper  === "+" ){
-           risultato = primo + secondo;
-           veroNumero = Number(risultato.toFixed(3)); 
+          const espressionePronta = testo.replace(/X/gi, '*').replace(/:/g, '/');
+   
+
+          const  veroNumero  =  (eval(espressionePronta)); //
+
             document.getElementById('display').value = (veroNumero);
             return 
-           } 
-           if (oper === "-" ){
-            risultato = primo-secondo;
-           veroNumero = Number(risultato.toFixed(3)); 
-           document.getElementById('display').value = (veroNumero);
-            return 
-           }  
-           if (oper === ":" ){
-            risultato = primo/ secondo;
-             veroNumero = Number(risultato.toFixed(3)); 
-            document.getElementById('display').value = (veroNumero);
-            return 
-           }
-           if (oper === "*" ){
-            risultato = primo*secondo;
-            veroNumero = Number(risultato.toFixed(3)); 
-            document.getElementById('display').value = (veroNumero);
-            return 
-           }
-           
-          }  
-              
+          }     
             
           
            function aggiungi(valore) {
