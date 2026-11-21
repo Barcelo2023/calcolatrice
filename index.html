@@ -66,9 +66,12 @@
           const espressionePronta = testo.replace(/X/gi, '*').replace(/:/g, '/');
    
 
-          const  veroNumero  =  (eval(espressionePronta)); //
+          const  risultato  =  (eval(espressionePronta)); 
 
-            document.getElementById('display').value = (veroNumero);
+          const risultatoPulito = Number(risultato.toPrecision(12)); 
+
+
+            document.getElementById('display').value = (risultatoPulito);
             return 
           }     
             
@@ -108,7 +111,7 @@
                  conta=conta-1;
           do{	 
                 
-              	conta = conta+0.00000001;
+              	conta = conta+0.00000011;
               	radice =conta*conta;    	
             	}while ( radice<primo);
 
